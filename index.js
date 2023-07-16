@@ -8,7 +8,7 @@ function buildGrid() {
             square.setAttribute('style', 'width: 6.25%; background-color: #808080')
             container.appendChild(square);
 
-            square.addEventListener("mouseover", (e) => {
+            square.addEventListener("mouseover", () => {
                 square.style.backgroundColor = '#000'
             })
         }
