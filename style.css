@@ -1,0 +1,7 @@
+.container {
+    display: flex;
+    flex-shrink: 0;
+    flex-wrap: wrap;
+    width: 800px;
+    height: 800px;
+}
