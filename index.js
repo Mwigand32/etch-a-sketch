@@ -14,4 +14,23 @@ function buildGrid(squareSize) {
     }
 }
 
-buildGrid(50);
+function destroyGrid() {
+    const container = document.querySelector('.container');
+    container.innerHTML = '';
+}
+
+function resetGrid() {
+    let numberOfSquares = prompt("Please enter the size of your new sketch (1-100):");
+
+    while(numberOfSquares > 100 || numberOfSquares < 1 || numberOfSquares === null || numberOfSquares === '') {
+        if(numberOfSquares === null || numberOfSquares === '') {
+            return;
+        }
+        numberOfSquares = prompt("Sorry, invalid size. Please enter the size of your new sketch (1-100):");
+    }
+
+    destroyGrid();
+    buildGrid(numberOfSquares);
+}
+
+buildGrid(16);
