@@ -8,7 +8,12 @@ function buildGrid(squareSize) {
             container.appendChild(square);
 
             square.addEventListener("mouseover", () => {
-                square.style.backgroundColor = '#000'
+                if(rainbowMode){
+                    square.style.backgroundColor = `rgb(${randomColor()}, ${randomColor()}, ${randomColor()}`;
+                } else {
+                    square.style.backgroundColor = '#000'
+                }
+                
             })
         }
     }
@@ -32,5 +37,22 @@ function resetGrid() {
     destroyGrid();
     buildGrid(numberOfSquares);
 }
+
+function randomColor() {
+    return Math.floor(Math.random() * 255);
+}
+
+function toggleRainbow() {
+    const rainbowButton = document.getElementById('rainbow-button');
+    if(rainbowMode === false){
+        rainbowMode = true;
+        rainbowButton.textContent = "Rainbow Mode: On"
+    }else{
+        rainbowMode = false;
+        rainbowButton.textContent = "Rainbow Mode: Off"
+    }
+}
+
+let rainbowMode = false;
 
 buildGrid(16);
